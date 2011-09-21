@@ -1,0 +1,76 @@
+table td{
+	border:1px solid #ddd;
+	padding:10px;
+}
+td.previewcell {vertical-align:top;min-width:550px;}
+table th {
+	text-align:left;
+}
+h3 {
+	margin:0;
+	font-weight:normal;
+}
+option {padding:4px!important;}
+img.help {cursor:help;vertical-align:middle;}
+input#likebutton_param_width,
+input#likebutton_param_height,
+select#likebutton_param_layout,
+select#likebutton_param_action,
+select#likebutton_param_colorscheme
+{
+	width:110px;
+}
+.settings_show_before_post label, 
+.setting_show_after_post label, 
+.settings_show_on_front_page label{
+	float:none!important;
+	width:300px!important;
+	display:inline!important;
+	margin-left:10px;
+}
+.settings_show_before_post input, 
+.setting_show_after_post input, 
+.settings_show_on_front_page input{
+	float:left!important;
+	margin-left:70px;
+}
+li.settings_show_before_post {
+	margin-top:10px;
+}
+li.settings_show_on_front_page {
+	margin-bottom:16px!important;
+}
+div.likebuttonAdminFormContainer ul#likebuttonParameters li label,
+div.likebuttonAdminFormContainer ul.likebuttonFormFields li label {
+	display: block; 
+	width: 110px;
+	float: left;
+	text-align: right;
+	margin-right: 10px;
+	margin-top:3px;
+}
+
+div.likebuttonAdminFormContainer fieldset legend {
+	font-size: 105%;
+	padding: 0px 4px;
+	margin: 5px 0;
+}
+
+fieldset legend,
+fieldset {
+	margin:0;
+	padding: 5px 0px 5px 15px;
+	border: 1px solid #cccccc;
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+}
+
+fieldset legend {
+	margin-top: 0;
+	padding-top: 0;
+	border-bottom-style: none;
+}
+
+.fblAuthorCredits {
+	display:none;
+}
