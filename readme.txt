@@ -1,4 +1,4 @@
-=== Facebook Like Widget ===
+=== Facebook Like Button Widget ===
 Contributors: kumbergwp
 Tags: facebook like button, facebook button, facebook like, like button, share to facebook, facebook share button, facebook recommend button, recommend button, facebook plugin, facebook widget, social button
 Requires at least: 2.0.0
