@@ -13,10 +13,10 @@ function likebutton_the_content($content) {
 		(is_page() && $likebutton_settings_show_on_single_page == 'true') ) 
 	{
 		if($likebutton_settings_show_before_post == 'true') {
-			$content = likebutton_get_iframe($likebutton_uri).get_option('flbc').$content;
+			$content = likebutton_get_iframe($likebutton_uri).$content;
 		}
 		if($likebutton_settings_show_after_post == 'true') {
-			$content .= likebutton_get_iframe($likebutton_uri).get_option('flbd');
+			$content .= likebutton_get_iframe($likebutton_uri);
 		}
 	}
 	return $content;

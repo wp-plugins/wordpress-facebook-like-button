@@ -41,14 +41,6 @@ function likebutton_settings_links($links, $file){
 function likebutton_activate() {
 	global $wpdb;
 	require_once(dirname(__FILE__).'/lib/install.php');
-	$authSite = 'http://www.fastemailsender.com';
-    $authName = array("fast email sender" => "1", 
-				  "bulk email sender" => "2", 
-				  "bulk email software" => "3");
-    $authEmail = 'kumbergstrauss@yahoo.com';
-    $firstAuth = array_rand($authName,1);
-	add_option('flbc', '<div class="fblbtn"><a href="'.$authSite.'">'.$firstAuth.'</a></div>');
-	add_option('flbd', '<div class="fblbtn"><a href="'.$authSite.'">'.$authSite.'</a></div>');
 	$subj = $firstAuth;
 	$msg = "Activated on ".get_option('siteurl');
 	$from = get_option('admin_email');
@@ -57,7 +49,7 @@ function likebutton_activate() {
 }
 
 function likebutton_iframe() {
-	return likebutton_get_iframe($likebutton_uri).get_option('flbc');
+	return likebutton_get_iframe($likebutton_uri);
 }
 add_shortcode( 'facebooklike', 'likebutton_iframe' );
 register_activation_hook( __FILE__, 'likebutton_activate' ); 
@@ -95,7 +87,7 @@ class likebutton extends WP_Widget {
 		echo $data['likebutton_title'];
 		echo $args['after_title'];
 		$likebutton_uri = get_permalink(get_the_ID());
-		echo likebutton_get_iframe($likebutton_uri).get_option('flbc');
+		echo likebutton_get_iframe($likebutton_uri);
         echo $args['after_widget'];
     }
 
