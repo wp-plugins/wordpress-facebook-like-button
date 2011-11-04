@@ -20,6 +20,7 @@
 					$key == 'likebutton_settings_show_on_single_page' ||
 					$key == 'likebutton_settings_show_on_front_page' ||
 					$key == 'likebutton_settings_show_on_single_post' ||
+					$key == 'likebutton_credits' ||
 					$key == 'likebutton_param_show_faces' ) {
 					$likebuttonOptions[$key] = $likebuttonIsSet;
 				}
@@ -40,12 +41,13 @@
                 'likebutton_settings_show_on_single_post' => 'true',
                 'likebutton_settings_cssclass' => 'likebuttonContainer',
 		'likebutton_param_layout' => 'standard',
-		'likebutton_param_width' => '500',
+		'likebutton_param_width' => '600',
 		'likebutton_param_height' => '25',
 		'likebutton_param_action' => 'like',
 		'likebutton_param_font' => 'arial',
 		'likebutton_param_colorscheme' => 'light',
-        'likebutton_param_show_faces' => 'true');
+        'likebutton_param_show_faces' => 'true',
+		'likebutton_credits' => 'true');
             return $likebuttonAdminOptions;
         }
 		

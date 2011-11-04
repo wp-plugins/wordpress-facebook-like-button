@@ -74,19 +74,19 @@ extract(get_option('likebuttonAdminOptions'));
 			<option value="button_count" <?php echo ($likebutton_param_layout == 'button_count') ? "selected='selected'" : ""; ?> ><?php echo("Button Count" ); ?></option>
             <option value="box_count" <?php echo ($likebutton_param_layout == 'box_count') ? "selected='selected'" : ""; ?> ><?php echo("Box Count" ); ?></option>
 		</select>
-        <img class="help" src="../wp-content/plugins/facebook-like-button-widget/img/info.png" title="Determines the size and amount of social context next to the button." alt="Determines the size and amount of social context next to the button." />
+        <img class="help" src="../wp-content/plugins/wordpress-facebook-like-button/img/info.png" title="Determines the size and amount of social context next to the button." alt="Determines the size and amount of social context next to the button." />
 	</li>
 
 	<li class="param_width">
 			<label class="description" for="likebutton_param_width"><?php echo("Width"); ?></label>
 			<input id="likebutton_param_width" name="likebutton_param_width" class="number" type="text" maxlength="7" value="<?php echo $likebutton_param_width; ?>"/> 
-            <img class="help" src="../wp-content/plugins/facebook-like-button-widget/img/info.png" title="The width of the plugin, in pixels. The default is 300." alt="The width of the plugin, in pixels. The default is 300." />
+            <img class="help" src="../wp-content/plugins/wordpress-facebook-like-button/img/info.png" title="The width of the plugin, in pixels. The default is 300." alt="The width of the plugin, in pixels. The default is 300." />
 	</li>
 
 	<li class="param_height">
 			<label class="description" for="likebutton_param_height"><?php echo("Height"); ?></label>
 			<input id="likebutton_param_height" name="likebutton_param_height" class="number" type="text" maxlength="4" value="<?php echo $likebutton_param_height; ?>"/> 
-             <img class="help" src="../wp-content/plugins/facebook-like-button-widget/img/info.png" title="The height of the plugin, in pixels. The default is 25." alt="The height of the plugin, in pixels. The default is 25." />
+             <img class="help" src="../wp-content/plugins/wordpress-facebook-like-button/img/info.png" title="The height of the plugin, in pixels. The default is 25." alt="The height of the plugin, in pixels. The default is 25." />
 	</li>
 
 	<li class="param_action">
@@ -95,7 +95,7 @@ extract(get_option('likebuttonAdminOptions'));
 			<option value="like" <?php echo ($likebutton_param_action == 'like') ? "selected='selected'" : ""; ?>><?php echo("Like"); ?></option>
 			<option value="recommend" <?php echo ($likebutton_param_action == 'recommend') ? "selected='selected'" : ""; ?>><?php echo("Recommend"); ?></option>
 		</select>
-         <img class="help" src="../wp-content/plugins/facebook-like-button-widget/img/info.png" title="The verb to display in the button. Currently only 'Like' and 'Recommend' are supported." alt="The verb to display in the button. Currently only 'Like' and 'Recommend' are supported." />
+         <img class="help" src="../wp-content/plugins/wordpress-facebook-like-button/img/info.png" title="The verb to display in the button. Currently only 'Like' and 'Recommend' are supported." alt="The verb to display in the button. Currently only 'Like' and 'Recommend' are supported." />
 	</li>
 	<li class="param_font">
 		<label class="description" for="likebutton_param_font"><?php echo("Font"); ?></label>
@@ -107,24 +107,36 @@ extract(get_option('likebuttonAdminOptions'));
 			<option value="trebuchet ms" <?php echo ($likebutton_param_font == 'trebuchet ms') ? "selected='selected'" : ""; ?>>Trebuchet MS</option>
 			<option value="verdana" <?php echo ($likebutton_param_font == 'verdana') ? "selected='selected'" : ""; ?>	>Verdana</option>
 		</select>
-        <img class="help" src="../wp-content/plugins/facebook-like-button-widget/img/info.png" title="The font of the text button." alt="The font of the text button." />
+        <img class="help" src="../wp-content/plugins/wordpress-facebook-like-button/img/info.png" title="The font of the text button." alt="The font of the text button." />
 	</li>
 	
 	<li class="param_colorscheme">
 		<label class="description" for="likebutton_param_colorscheme"><?php echo("Color Scheme"); ?></label>
-		<select id="likebutton_param_colorscheme" name="likebutton_param_colorscheme"> 
+		<select id="likebutton_param_colorscheme" name="likebutton_param_colorscheme" onchange="findselected()"> 
 			<option value="light" <?php echo ($likebutton_param_colorscheme == 'light') ? "selected='selected'" : ""; ?>><?php echo("Light"); ?></option>
 			<option value="dark" <?php echo ($likebutton_param_colorscheme == 'dark') ? "selected='selected'" : ""; ?>	><?php echo("Dark"); ?></option>
 		</select>
-         <img class="help" src="../wp-content/plugins/facebook-like-button-widget/img/info.png" title="The color scheme of the button." alt="The color scheme of the button." />
+         <img class="help" src="../wp-content/plugins/wordpress-facebook-like-button/img/info.png" title="The color scheme of the button." alt="The color scheme of the button." />
 	</li>
-	<li class="param_show_faces">
-		<label class="description" for="likebutton_param_show_faces"><?php echo("Show Faces?"); ?></label>
-		<input id="likebutton_param_show_faces" name="likebutton_param_show_faces" class="checkbox" type="checkbox" 
-			value="<?php echo $likebutton_param_show_faces; ?>" 
-			<?php echo ($likebutton_param_show_faces == 'true') ? ' checked="checked"' : '';  ?>/>
-            <img class="help" src="../wp-content/plugins/facebook-like-button-widget/img/info.png" title="Show facebook profile pictures below the button." alt="Show facebook profile pictures below the button." />
-
+	<li class="optional_settings">
+    	<table border="0">
+        	<tr>
+            	<td style="border:none;">
+                <label class="description" for="likebutton_param_show_faces"><?php echo("Show Faces?"); ?></label>
+                <input id="likebutton_param_show_faces" name="likebutton_param_show_faces" class="checkbox" type="checkbox" 
+                    value="<?php echo $likebutton_param_show_faces; ?>" 
+                    <?php echo ($likebutton_param_show_faces == 'true') ? ' checked="checked"' : '';  ?>/>
+                    <img class="help" src="../wp-content/plugins/wordpress-facebook-like-button/img/info.png" title="Show facebook profile pictures below the button." alt="Show facebook profile pictures below the button." />
+            	</td>
+                <td style="border:none;">
+                <label class="description" for="likebutton_credits"><?php echo("Show Credits?"); ?></label>
+				<input id="likebutton_credits" name="likebutton_credits" class="checkbox" type="checkbox" 
+			value="<?php echo $likebutton_credits; ?>" 
+				<?php echo ($likebutton_credits == 'true') ? ' checked="checked"' : '';  ?>/>
+            	<img class="help" src="../wp-content/plugins/wordpress-facebook-like-button/img/info.png" title="Support WordPress Facebook Like Button plugin by showing a small link in the footer of your blog." alt="" />
+                </td>
+            </tr>
+		</table>
 	</li>
 	<li class="setting_class" style="display:none;">
 			<label class="description" for="likebutton_settings_cssclass"><?php echo("CSS Class"); ?></label>
@@ -133,7 +145,7 @@ extract(get_option('likebuttonAdminOptions'));
 	</li>
 	</ul>
         </td>
-		<td class="previewcell">
+		<td id="previewcell" class="previewcell">
         	 <div class="fblInnerHtml"><input type="hidden" id="check_url" value="<?php echo 'http%3A%2F%2Fwww.facebook.com%2F%23!%2Fpages%2FFast-Email-Sender%2F157869230912585'; ?>" size="50" /></div>
 			<div id="likebutton_preview" class="fblInnerHtml"></div>
         </td>

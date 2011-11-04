@@ -9,7 +9,7 @@ Facebook Like social button for sharing your content with friends to Facebook ne
 
 == Description ==
 
-This plugin enables Facebook Like Button for homepage, pages and posts in different position of layout and also as widget. Spread your website content to Facebook Social Network.
+This plugin enables Facebook Like Button for homepage, pages and posts in different position of layout and also as widget. Spread your website content to Facebook Social Network. Also you can use it as widget or shortcode.
 
 = Plugin Settings =
 
@@ -46,3 +46,7 @@ This plugin enables Facebook Like Button for homepage, pages and posts in differ
 = May I use Facebook Like Button inside of pages or posts content ? = 
 
 Yes. You have to use the shortcode `[facebooklike]`
+
+= Is there a way to turn off the like button for certain pages? =
+
+No. This is not possible in the curent version but will be available in the next release.

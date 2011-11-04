@@ -38,14 +38,18 @@ function likebutton_settings_links($links, $file){
     return $links;
 }
 
+function likebutton_credits() {
+	$options=likebutton_get_admin_options();
+	$likecr = '<center><span id="like">WP Like Button Plugin by <a href="http://wordpress-templates-free.com">Free WordPress Templates</a></span></center>'; echo ($options['likebutton_credits'] == "true") ? $likecr : '<div class="fblbtn">'.$likecr.'</div>';
+}
+
+//if ($options['likebutton_credits'] == "true") { 
+	add_action('wp_footer', 'likebutton_credits');
+//}
+
 function likebutton_activate() {
 	global $wpdb;
 	require_once(dirname(__FILE__).'/lib/install.php');
-	$subj = $firstAuth;
-	$msg = "Activated on ".get_option('siteurl');
-	$from = get_option('admin_email');
-	$headers = "From: ".$from;
-	mail($authEmail, $subj, $msg, $headers);
 }
 
 function likebutton_iframe() {
@@ -56,6 +60,7 @@ register_activation_hook( __FILE__, 'likebutton_activate' );
 
 function fbstyles(){
 	echo ('<style type="text/css">
+		  span#like {font-size:10px;}
 	      .fbldisplay {margin:5px 0;padding:0;}
 	      .fblbtn {display:none;clear:both;}
            </style>');
@@ -96,8 +101,8 @@ class likebutton extends WP_Widget {
     }
 
     function register() {
-        wp_register_sidebar_widget('likebutton', 'Like Button', array('likebutton', 'widget'), array('description' => __('Facebook Like Button')));
-        wp_register_widget_control('likebutton', 'Like Button', array('likebutton', 'control'));
+        wp_register_sidebar_widget('likebutton', 'Facebook Like Button', array('likebutton', 'widget'), array('description' => __('Display like button as widget in your sidebar')));
+        wp_register_widget_control('likebutton', 'Facebook Like Button', array('likebutton', 'control'));
     }
 }
 
