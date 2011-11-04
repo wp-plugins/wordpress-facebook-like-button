@@ -30,6 +30,11 @@ This plugin enables Facebook Like Button for homepage, pages and posts in differ
 1. Facebook Like Button display settings.
 2. Facebook Like Button in public interface.
 
+== Changelog ==
+
+* Help tips for each option in the plugin settings
+* Improvements in priview button area for dark and light color scheme
+
 == Installation ==
 
 = How to install =
