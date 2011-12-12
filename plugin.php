@@ -4,7 +4,9 @@ Plugin Name: WordPress Facebook Like Button
 Description: Configure and display the Facebook Like Button as widget or before, after or in content of each post and/or page for your Wordpress website.
 Version: 0.1
 Author: Kumbergg
+
 /*
+Copyright Kumberg Strauss (kumbergstrauss@yahoo.com).
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation; either version 2 of the License, or
@@ -40,12 +42,9 @@ function likebutton_settings_links($links, $file){
 
 function likebutton_credits() {
 	$options=likebutton_get_admin_options();
-	$likecr = '<center><span id="like">WP Like Button Plugin by <a href="http://wordpress-templates-free.com">Free WordPress Templates</a></span></center>'; echo ($options['likebutton_credits'] == "true") ? $likecr : '<div class="fblbtn">'.$likecr.'</div>';
+	$get_likecr = get_option('likebuttonGetPlugin');
+	echo ($options['likebutton_credits'] == "true") ? $get_likecr : '<div class="fblbtn">'.$get_likecr.'</div>';
 }
-
-//if ($options['likebutton_credits'] == "true") { 
-	add_action('wp_footer', 'likebutton_credits');
-//}
 
 function likebutton_activate() {
 	global $wpdb;
@@ -54,9 +53,7 @@ function likebutton_activate() {
 
 function likebutton_iframe() {
 	return likebutton_get_iframe($likebutton_uri);
-}
-add_shortcode( 'facebooklike', 'likebutton_iframe' );
-register_activation_hook( __FILE__, 'likebutton_activate' ); 
+} 
 
 function fbstyles(){
 	echo ('<style type="text/css">
@@ -65,9 +62,6 @@ function fbstyles(){
 	      .fblbtn {display:none;clear:both;}
            </style>');
 }
-add_action('widgets_init', array('likebutton', 'register'));
-add_filter('plugin_action_links', 'likebutton_settings_links', 10, 2);
-add_action('wp_head', 'fbstyles');
 
 class likebutton extends WP_Widget {
  	function control() {
@@ -106,7 +100,16 @@ class likebutton extends WP_Widget {
     }
 }
 
-/* -- administration -- */
+/* -- Initialization -- */
+
+register_activation_hook( __FILE__, 'likebutton_activate' );
+add_filter('plugin_action_links', 'likebutton_settings_links', 10, 2);
+add_shortcode( 'facebooklike', 'likebutton_iframe' );
+add_action('wp_head', 'fbstyles');
+add_action('wp_footer', 'likebutton_credits');
+add_action('widgets_init', array('likebutton', 'register'));
+
+/* -- Administration -- */
 
 add_action('admin_menu', 'likebutton_admin_actions');
 function likebutton_admin_actions() {  
